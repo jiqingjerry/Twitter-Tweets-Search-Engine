@@ -1,6 +1,7 @@
 export class Tweet {
-  id: number;
+  username: string;
   user: string;
   text: string;
-  hashtags: string;
+  hashtag: string;
+  title: string;
 }

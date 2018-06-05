@@ -46,22 +46,11 @@ import java.util.Map;
 @CrossOrigin("*")
 public class TweetController {
     static List<Tweet> tweets;
-    // static {
-    //     tweets = new ArrayList<>();
-    //     tweets.add(new Tweet(1, "First Tweet",
-    //             "Class Overview, Overview of Information Retrieval and Search Engines"));
-    //     tweets.add(new Tweet(2, "Second Tweet",
-    //             "Ranking: Vector space model, Probabilistic Model, Language model"));
-    //     tweets.add(new Tweet(3, "Third Tweet",
-    //             "Web Search: Spam, topic-specific pagerank"));
-    // }
-
-
+    // static String[] args = LuceneSearcherApplication.getArgs();
 
     @GetMapping("/tweets")
     public List<Tweet> searchTweets (@RequestParam(required=false, defaultValue="") String query) throws IOException, org.apache.lucene.queryparser.classic.ParseException  {
-
-
+        // System.out.println(args[0]);
         Analyzer analyzer = new StandardAnalyzer();
         String name = System.getProperty("user.name");
         // Now search the index:
@@ -70,7 +59,7 @@ public class TweetController {
 
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 
-        String[] fields = {"Name", "UserName", "Text", "Hashtags"}; //Add the fields here
+        String[] fields = {"Name", "UserName", "Text", "Hashtags", "Title"}; //Add the fields here
 
        	int topHitCount = 20;
         //Sort sort = new Sort(SortField.FIELD_SCORE, new SortField("Date", SortField.Type.STRING));
@@ -85,6 +74,7 @@ public class TweetController {
         boosts.put(fields[1], .75f);
         boosts.put(fields[2], 1.0f);
         boosts.put(fields[3], 1.5f);
+        boosts.put(fields[4], 1.0f);
         //adjust these
        	MultiFieldQueryParser parser2 = new MultiFieldQueryParser(fields, analyzer, boosts);
        	Query q = parser2.parse(query);
@@ -94,7 +84,7 @@ public class TweetController {
         // tweets = new ArrayList<>();
         for (int rank = 0; rank < hits.length; ++rank) {
             Document hitDoc = indexSearcher.doc(hits[rank].doc);
-            matches.add(new Tweet((rank+1), hitDoc.get("Name"), hitDoc.get("Text"), hitDoc.get("Hashtags")));
+            matches.add(new Tweet(hitDoc.get("UserName"), hitDoc.get("Name"), hitDoc.get("Text"), hitDoc.get("Hashtags"), hitDoc.get("Title")));
             // System.out.println((rank + 1) + " (score:" + hits[rank].score + ") " + hitDoc.get("Date") + " --> " +
             //                    hitDoc.get("Name") + " - " + hitDoc.get("Text"));
             // System.out.println(indexSearcher.explain(query, hits[rank].doc));
