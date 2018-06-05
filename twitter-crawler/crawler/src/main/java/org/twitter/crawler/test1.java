@@ -130,7 +130,7 @@ public class test1 implements Runnable
 		            	boolean hasGeo = false;
 
 		            	String text = status.getText();
-		            	
+
 
 		            	//Fetches all User mentions within the tweet and prints them
 		            	UserMentionEntity[] userList = status.getUserMentionEntities();
