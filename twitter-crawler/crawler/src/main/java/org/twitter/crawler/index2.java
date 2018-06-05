@@ -81,8 +81,8 @@ public class index2
         IndexWriterConfig config = new IndexWriterConfig(analyzer).setOpenMode(OpenMode.CREATE);
         IndexWriter indexWriter = new IndexWriter(directory, config);
 
-        int numFiles = 1;
-        for(int i = 0; i < numFiles; i++)
+        int numFiles = 136;
+        for(int i = 134; i < numFiles; i++)
         {
 			JSONParser parser = new JSONParser();
 			try

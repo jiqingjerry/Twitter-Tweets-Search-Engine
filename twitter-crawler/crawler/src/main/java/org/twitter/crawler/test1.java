@@ -116,7 +116,7 @@ public class test1 implements Runnable
 
 			StatusListener listener = new StatusListener() {
 				int lines = 0;
-				int filecount = 0;
+				int filecount = 134;
 				ArrayList<String> tweetlist = new ArrayList<String>();
 	            @SuppressWarnings("unchecked")
 				public void onStatus(Status status) {
@@ -171,7 +171,7 @@ public class test1 implements Runnable
 							tweet.put("lat", status.getGeoLocation().getLatitude());
 							tweet.put("long", status.getGeoLocation().getLongitude());
 						}
-						tweet.put("withheld-countries", status.getWithheldInCountries());
+//						tweet.put("withheld-countries", status.getWithheldInCountries());
 						tweet.put("favorite", status.getFavoriteCount());
 						tweet.put("id", status.getId());
 						tweet.put("lang", status.getLang());
