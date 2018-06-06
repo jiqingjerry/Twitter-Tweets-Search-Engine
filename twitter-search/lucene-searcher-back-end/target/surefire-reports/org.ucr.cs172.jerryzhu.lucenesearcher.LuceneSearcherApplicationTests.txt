@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.ucr.cs172.jerryzhu.lucenesearcher.LuceneSearcherApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 133.835 s - in org.ucr.cs172.jerryzhu.lucenesearcher.LuceneSearcherApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.49 s - in org.ucr.cs172.jerryzhu.lucenesearcher.LuceneSearcherApplicationTests

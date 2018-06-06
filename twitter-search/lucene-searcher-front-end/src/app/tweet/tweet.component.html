@@ -1,7 +1,7 @@
 <input #searchBox id="search-box"
 (keyup.enter)="search(searchBox.value)"/>
 <button (click)="search(searchBox.value)">Search</button>
-<h2>Relevant Tweets:</h2>
+<h2>Search Results:</h2>
 <ul class="tweets" *ngIf="tweets">
   <li *ngFor="let tweet of tweets">
     <span class="badge">{{tweet.username}}</span>
