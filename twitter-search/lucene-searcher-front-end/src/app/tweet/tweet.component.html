@@ -1,15 +1,15 @@
 <input #searchBox id="search-box"
 (keyup.enter)="search(searchBox.value)"/>
 <button (click)="search(searchBox.value)">Search</button>
-
 <h2>Relevant Tweets:</h2>
 <ul class="tweets" *ngIf="tweets">
   <li *ngFor="let tweet of tweets">
     <span class="badge">{{tweet.username}}</span>
     {{tweet.user | uppercase}}<span>: </span>
     {{tweet.text}} <br />
+    <span>DATE: </span>{{tweet.date}} <br />
     <span>HASHTAGS: </span>{{tweet.hashtag}} <br />
-    <span>TITLE: </span>{{tweet.title}}
+    <span>URL TITLE: </span>{{tweet.title}}
   </li>
 </ul>
 

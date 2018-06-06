@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { TweetComponent } from './tweet/tweet.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +19,7 @@ import { TweetComponent } from './tweet/tweet.component';
   imports: [
     BrowserModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [AppComponent]
 })
