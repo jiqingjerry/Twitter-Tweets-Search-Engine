@@ -1,4 +1,5 @@
 # Tweet Search Engine
 
-Crawler collected the Tweets for Indexing.
-Search Engine is the Web app for the Search Engine
+twitter-crawler collected the Tweets for Indexing.
+
+twitter-search is the Web app for the Search Engine.
